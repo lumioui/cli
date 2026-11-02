@@ -1,0 +1,67 @@
+{
+  "name": "@lumioui/cli",
+  "version": "0.4.1",
+  "description": "LumioUI CLI: init, add, list, doctor, login, whoami and agent skills for the LumioUI React Native component system",
+  "keywords": [
+    "react-native",
+    "expo",
+    "ui",
+    "components",
+    "animation",
+    "reanimated",
+    "nativewind",
+    "cli"
+  ],
+  "homepage": "https://lumioui.com/docs/cli",
+  "author": "Sidian Labs",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "lumioui": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "prepack": "npm run build",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/registry.test.ts src/wire.test.ts src/skills.test.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.1.0",
+    "prompts": "^2.4.2",
+    "zod": "^3.23.0",
+    "execa": "^9.5.0",
+    "fs-extra": "^11.2.0",
+    "semver": "^7.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0",
+    "tsup": "^8.3.0",
+    "@types/node": "^22.10.0",
+    "@types/prompts": "^2.4.9",
+    "@types/fs-extra": "^11.0.4",
+    "@types/semver": "^7.5.8"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumioui/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lumioui/cli/issues"
+  }
+}
